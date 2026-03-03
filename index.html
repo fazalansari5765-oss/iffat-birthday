@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Happy Birthday Iffat Appi 🎂</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  font-family: Arial, sans-serif;
+  overflow:hidden;
+  text-align:center;
+}
+
+#surpriseBtn {
+  padding:15px 30px;
+  font-size:22px;
+  border:none;
+  border-radius:30px;
+  background:#ff4e50;
+  color:white;
+  cursor:pointer;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.content {
+  display:none;
+  flex-direction:column;
+  align-items:center;
+}
+
+h1 {
+  font-size:50px;
+  color:white;
+  font-family: 'Pacifico', cursive;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px white; }
+  to { text-shadow: 0 0 25px yellow; }
+}
+
+p {
+  font-size:20px;
+  color:white;
+  width:80%;
+  max-width:600px;
+}
+
+.balloon {
+  position:absolute;
+  bottom:-100px;
+  width:60px;
+  height:80px;
+  border-radius:50%;
+  animation: float 8s infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-120vh); }
+}
+
+.confetti {
+  position:absolute;
+  width:10px;
+  height:10px;
+  top:-10px;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<button id="surpriseBtn" onclick="startSurprise()">🎁 Tap for Surprise</button>
+
+<div class="content" id="mainContent">
+  <h1>🎉 Happy Birthday Iffat Appi 🎂</h1>
+
+  <p>
+  Dear Iffat Appi 💖 <br><br>
+  Aap sirf meri badi behen nahi ho, aap meri strength, meri guide aur meri best friend ho ✨  
+  Allah kare aapki zindagi hamesha khushiyon se bhari rahe 😊  
+  Aap hamesha muskurati raho, kyunki aapki smile duniya ki sabse pyari smile hai 🌸  
+  Love you so much Appi 💕
+  </p>
+</div>
+
+<script>
+function startSurprise(){
+  document.getElementById("surpriseBtn").style.display="none";
+  document.getElementById("mainContent").style.display="flex";
+  createConfetti();
+}
+
+function createConfetti() {
+  const colors = ["#ff4e50","#f9d423","#24c6dc","#abecd6","#f7797d","#ff9a9e"];
+  for(let i=0;i<150;i++){
+    let confetti = document.createElement("div");
+    confetti.className = "confetti";
+    confetti.style.left = Math.random()*100 + "vw";
+    confetti.style.background = colors[Math.floor(Math.random()*colors.length)];
+    confetti.style.animationDuration = (3 + Math.random()*3) + "s";
+    document.body.appendChild(confetti);
+    setTimeout(()=>{ confetti.remove(); },6000);
+  }
+}
+</script>
+
+</body>
+</html>
